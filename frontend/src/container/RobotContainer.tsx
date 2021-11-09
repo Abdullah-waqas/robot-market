@@ -16,13 +16,14 @@ function RobotContainer() {
 
     return (
         <>
-            <input onChange={(e) => filter(e.currentTarget.value)} />
+            <input placeholder="Search with material type" className="search-box" onChange={(e) => filter(e.currentTarget.value)} />
             <div style={{ display: 'flex' }}>
 
-                <div className="robo-list band" style={{ width: '70%' }}>
+                <div className="robo-list band" style={{ width: '70%', padding: '20px' }}>
                     {filteredList.map((robot: RobotI) => <RobotCard robot={robot} key={robot.id} />)}
                 </div>
-                <div className="robo-cart band" style={{ width: '30%' }}>
+                <div className="robo-cart band" style={{ width: '30%', padding: '20px' }}>
+                    <h1>Cart Items</h1>
                     {cartItems.map((robot: RobotI, index: number) => <RobotCart robot={robot} index={index} key={index} />)}
                     <h4>Total Price: {getTotalSum(cartItems)}</h4>
                     <h4>Total Amount: {cartItems.length}</h4>
