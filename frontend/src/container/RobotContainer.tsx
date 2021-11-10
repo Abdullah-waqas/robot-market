@@ -2,25 +2,28 @@ import * as React from 'react';
 import RobotCard from '../components/RobotCard';
 import RobotCart from '../components/RobotCart';
 import useRobotMarket from '../custom-hooks/useRobotMarketHooks';
-import { getTotalSum } from '../helper/custom-methods';
+import { debounce, getTotalSum } from '../helper/custom-methods';
 import { RobotI } from '../models/RobotList';
 
 
+
 function RobotContainer() {
-    const { filterRobots, robotList, filteredList, cartItems } = useRobotMarket();
+    const { filterRobots, filteredList, cartItems } = useRobotMarket();
 
     const filter = (value: string) => {
-        // TODO: Use debounce
         filterRobots(value);
     }
+    const filterResults = debounce<typeof filter>(filter, 1000)
 
     return (
         <>
-            <input placeholder="Search with material type" className="search-box" onChange={(e) => filter(e.currentTarget.value)} />
             <div style={{ display: 'flex' }}>
 
-                <div className="robo-list band" style={{ width: '70%', padding: '20px' }}>
-                    {filteredList.map((robot: RobotI) => <RobotCard robot={robot} key={robot.id} />)}
+                <div className="" style={{ width: '70%', padding: '20px' }}>
+                    <input placeholder="Search with material type" className="search-box" onChange={(e) => filterResults(e.currentTarget.value)} />
+                    <div className="robo-list band" style={{ padding: '20px' }}>
+                        {filteredList.map((robot: RobotI) => <RobotCard robot={robot} key={robot.id} />)}
+                    </div>
                 </div>
                 <div className="robo-cart band" style={{ width: '30%', padding: '20px' }}>
                     <h1>Cart Items</h1>
@@ -34,3 +37,4 @@ function RobotContainer() {
 
 }
 export default RobotContainer;
+

@@ -1,4 +1,3 @@
-// import { IPatient } from "../../interfaces/patient";
 import { RobotI } from "../../models/RobotList";
 
 export const SET_ROBOT_LIST = "SET_ROBOT_LIST";

@@ -9,9 +9,6 @@ import {
   UpdateFilterListAction,
   UPDATE_FILTER_LIST,
 } from "./types";
-
-//   import { IPatient } from '../../interfaces/patient';
-//   import axios from 'axios';
 import { RobotI } from "../../models/RobotList";
 import { ADD_TO_CART } from "./types";
 

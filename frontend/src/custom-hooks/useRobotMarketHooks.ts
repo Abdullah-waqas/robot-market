@@ -80,19 +80,6 @@ export default function useRobotMarket() {
       });
   };
 
-  // const editPatient = (patient: IPatient) => {
-  //   return dispatch(actions.editPatient(patient));
-  // };
-
-  // const addPatient = (patient: IPatient) => {
-  //   return dispatch(actions.addPatient(patient));
-  // };
-
-  // const deletePatient = (id: string) => {
-  //   return dispatch(actions.deletePatient(id));
-  // };
-
-  // return { patients, addPatient, editPatient, deletePatient };
   return {
     robotList,
     filteredList,
